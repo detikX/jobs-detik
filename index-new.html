@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="x-apple-disable-message-reformatting">
+    </head>
+    <style>
+      @font-face {
+      font-family: 'Montserrat';
+      src: url(Montserrat-Light.woff2) format('woff2');
+    }
+    @font-face {
+      font-family: 'Medium';
+      src: url(Montserrat-Medium.woff2) format('woff2');;
+    }
+    @font-face {
+      font-family: 'Bold';
+      src: url(Montserrat-Bold.woff2) format('woff2');;
+    }
+    body, table, th, td, span, ol, ul, li {font-family: 'Montserrat',sans-serif !important;
+    }
+    body {
+      /* font-family: 'Montserrat',sans-serif !important; */
+      padding: 5px;
+    }
+    .bold-black {
+      font-weight: bold;
+      color: black;
+    }
+    a.no-decoration {
+      text-decoration: none;
+    }
+    .vertical-sub {
+      vertical-align: sub;
+    }
+    .vertical-middle {
+      vertical-align: middle;
+    }
+    .container-wrap {
+      max-width: 700px !important;
+    }
+    .container-wrap .container {
+      font-family: sans-serif;
+      font-size: 14px;
+      border-radius: 25px;
+      background: white;
+      padding: 0 16px;
+      background: url(https://akcdn.detik.net.id/community/media/visual/2024/06/06/aset-icon-bg.png?w=1080) #f6f6f6;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+    }
+    .header {
+      margin: 0px;
+    }
+    .header .logo-container {
+      margin: 0 auto;
+      /* text-align: center; */
+      width: 100% !important;
+    }
+    .header .logo-container .logo-img {
+      display: block;
+      margin: 0 auto;
+    }
+    .header .logo-container td {
+      padding: 40px 20px 16px;
+      color: white;
+    }
+    .content {
+      color: #1a2734;
+      line-height: 22px;
+    }
+    .content .content-wrapper {
+      padding-bottom: 24px;
+    }
+    .content-wrapper .booking-info-table {
+      /* border-bottom: 2px solid #e9ebee; */
+      /* padding-bottom: 24px; */
+      position: relative;
+    }
+    .content-wrapper .content-name {
+      /* padding-bottom: 24px; */
+      background: #fff;
+      /* color: white; */
+      padding: 16px ;
+      margin: 0 auto;
+      /* margin: 0 16px; */
+      /* position: absolute; */
+      border-radius: 20px 20px 0 0;
+      width: 90%;
+      /* font-weight: 700; */
+      /* font-size: 23px; */
+      /* line-height: 1.25; */
+      letter-spacing: normal;
+      z-index: 9;
+      left: 0;
+      right: 0;
+    }
+    .content-wrapper .content-name .welcome {
+      font-size: 16px;
+      font-weight: bold;
+      font-family: 'Bold', sans-serif;
+      padding: 0;
+      margin: 0;
+    }
+    .content-wrapper .content-name p {
+      font-size: 15px;
+      margin: 8px 0 0;
+      width: 400px;
+      line-height: 20px;
+    }
+    .content-wrapper .content-booking {
+      padding-bottom: 6px;
+      font-weight: 400;
+      font-size: 14px;
+      /* position: relative; */
+      line-height: 20px;
+      border-radius: 0 0 20px 20px;
+      /* border: 1px solid; */
+      background: white;
+      z-index: 2;
+      /* top: 48px; */
+    }
+    .mail {
+      color: white !important;
+    }
+    .content-wrapper .content-booking-note {
+      line-height: 1.43;
+      color: #898989;
+    }
+    
+    .order-info .order-table {
+      /* padding: 8px; */
+      /* border: 1px solid #d3d3d3; */
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(51, 51, 51, .1);
+      padding-bottom: 16px;
+      /* border-radius: 16px; */
+      /* border-bottom: 2px solid #e9ebee; */
+    }
+    .order-info .order-image {
+      width: 132px;
+      vertical-align: top;
+      height: 132px;
+      /* padding-right: 16px; */
+    }
+    .order-info .right-table .order-image img {
+      /* border-radius: 0 16px 16px 0 !important; */
+      border-radius: 50% !important;
+    }
+    .order-info .order-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      /* min-height: 80px; */
+      /* border-radius: 16px 0 0 16px; */
+      border-radius: 50%;
+      /* max-height: 212px; */
+      object-fit: cover;
+    }
+    .order-info .order-content {
+      vertical-align: top;
+      /* padding: 16px 0; */
+    }
+    .order-info .right-table .order-title {
+      border-radius: 16px 0 0 !important;
+      text-align: right !important;
+    }
+    .order-info .right-table .order-rating-container {
+      text-align: right !important;
+    }
+    .order-info .right-table .order-address p {
+      text-align: right;
+    }
+    .order-info .right-table .btn-link {
+      float: right;
+    }
+    .order-info .order-title {
+      line-height: normal;
+      text-transform: initial;
+      /* background: #214798; */
+      border-radius: 0 16px 0 0;
+      padding: 8px 16px 0;
+      color: #333;
+    }
+    .order-info .order-rating-container {
+      padding: 4px 16px 8px;
+      /* background: #214798; */
+      color: rgba(51, 51, 51, .7);
+    }
+    .order-info .order-rating-container img {
+      vertical-align: middle;
+    }
+    .order-info .order-address,
+    .order-info .order-phone {
+      line-height: 1.5;
+      font-size: 14px;
+      padding: 0px 16px 8px;
+    }
+    .order-info .order-address p {
+      padding: 0;
+      margin: 0px 0 20px;
+      max-height: 90px;
+      overflow: hidden;
+      font-size: 14px;
+      color: #333;
+    }
+    .order-info .order-address a {
+      text-decoration: none;
+    }
+    .order-info .order-location {
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 1.33;
+      color: #f97432;
+      white-space: nowrap;
+    }
+    .order-info .order-caret {
+      font-size: 18px;
+      line-height: 15px;
+      vertical-align: text-bottom;
+    }
+
+    .content-lock {
+      line-height: 1.5;
+    }
+    .content-lock .content-lockbody {
+      background: #f8f8f8;
+      font-size: 18px;
+    }
+    .content-lock .content-lockbody .content-lockmessage {
+      font-weight: 700;
+      padding-top: 10px;
+    }
+    .content-lock .content-lockbody .content-lockinstruction {
+      padding-bottom: 10px;
+    }
+    
+    .detail-info {
+      padding-bottom: 7px;
+    }
+    .detail-info .detail-table {
+      padding-bottom: 36px;
+      border-bottom: 2px solid #e9ebee;
+    }
+    .detail-info .detail-table .detail-wrapper {
+      font-size: 14px;
+      line-height: 2;
+      padding: 10px 20px 24px;
+    }
+    .detail-table .detail-content {
+      font-size: 16px;
+    }
+    .detail-table .detail-content .detail-title {
+      padding: 14px 0;
+      color: #233445;
+      font-weight: 700;
+    }
+    .detail-table .detail-row {
+      width: 33%;
+      vertical-align: top;
+      color: #898989;
+      padding-top: 10px;
+      padding-right: 10px;
+      line-height: 1.5;
+    }
+    .detail-table .detail-row-content {
+      color: #000000;
+      padding-top: 10px;
+      line-height: normal;
+      vertical-align: top;
+    }
+    .detail-table .detail-row-content:not(.info) {
+      line-height: 1.5;
+    }
+    .detail-table .detail-row-content.info {
+      color: #898989;
+      padding-top: 8px;
+    }
+    .detail-button {
+      padding: 24px 20px 0;
+    }
+    .detail-button .detail-buttonlink {
+      color: white;
+      text-decoration: none;
+    }
+    .detail-button .detail-buttonlink .detail-buttonclick {
+      background: #f97432;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      padding: 8px 6px 8px 12px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+    .plan-info {
+      padding-bottom: 16px;
+    }
+    .plan-info .plan-table {
+      border-bottom: 2px solid #e9ebee;
+      padding-bottom: 15px;
+      line-height: 2;
+    }
+    .plan-info .plan-table .plan-wrapper {
+      font-size: 12px;
+    }
+    .plan-content {
+      background: #f1f1f1;
+      color: #3d4d5d;
+      border-radius: 4px;
+      padding: 10px 20px 20px;
+    }
+    
+    p.large {
+      font-size: 15px;
+      padding: 4px;
+      /* margin-top: 60px; */
+      width: 85%;
+      color: #333;
+      /* color: #214798; */
+      line-height: 20px;
+      font-style: italic;
+      margin-bottom: 24px;
+      font-weight: bold;
+      /* border: 1px solid; */
+      /* border-radius: 75px; */
+
+    }
+    
+    .additional-table {
+      padding-top: 24px;
+      padding-bottom: 36px;
+      border-bottom: 2px solid #e9ebee;
+    }
+    .additional-table .additional-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a2734;
+      line-height: normal;
+      padding-bottom: 16px;
+    }
+    .additional-table .additional-subtitle {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a2734;
+      line-height: 18px;
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+    .additional-table .additional-content {
+      font-size: 14px;
+      font-weight: 400;
+      color: #4d4d4d;
+      line-height: 18px;
+      margin-bottom: 20px;
+      margin-top: 0;
+    }
+
+    .help-info {
+      border-bottom: 2px solid #e9ebee;
+      padding-bottom: 16px;
+    }
+    .help-info .help-table {
+      font-size: 14px;
+      line-height: 1.8;
+      padding-top: 24px;
+    }
+    .help-info .help-table .help-title {
+      font-weight: 700;
+      font-size: 28px;
+    }
+    .help-info .help-table .help-content {
+      padding-bottom: 7px;
+      color: #3d4d5d;
+    }
+    .help-info .help-table .help-support {
+      padding-bottom: 3px;
+    }
+    .help-info .help-table .help-phone {
+      text-align: right;
+      padding-right: 5%;
+      white-space: nowrap;
+      word-break: break-all;
+    }
+    .help-info .help-table .help-contact {
+      color: #f97432 !important;
+      font-weight: 700;
+    }
+    .help-info .help-table .help-mail {
+      text-align: left;
+      padding-left: 5%;
+      white-space: nowrap;
+      word-break: break-all;
+    }
+    .help-info .help-table img.vertical-middle {
+      width: 18px;
+    }
+    .footer {
+      border-bottom: 2px solid #e9ebee;
+    }
+    .footer .footer-table {
+      color: #8996a3;
+    }
+    .footer-table .footer-wrapper {
+      padding: 45px 0 60px;
+      border-spacing: 0;
+      margin: 0 auto;
+    }
+    .footer-table .footer-wrapper td{
+      width: 50px;
+      margin-right: 8px;
+      height: 50px;
+    }
+    .footer-table .footer-wrapper td img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .footer-table .footer-wrapper .footer-content {
+      padding: 0 0 0 10px;
+    }
+    .footer-download {
+      text-align: left;
+    }
+    .footer-download .footer-downloadtitle {
+      padding: 7px 0;
+      color: #1a2734;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .footer-download .footer-downloadtitle .footer-downloadname {
+      color: #f97432;
+    }
+    .footer-download .footer-downloadshare {
+      padding-bottom: 7px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #8996a3;
+    }
+    .footer-download .footer-download-gplay {
+      padding-right: 7.5px;
+    }
+    .confirmation-email {
+      line-height: 1.33;
+      color: white;
+      font-size: 12px;
+    }
+    .confirmation-email a {
+      color: #8996a3;
+    }
+    .tnc {
+      padding-top: 6px;
+      display: block;
+      text-decoration: underline !important;
+    }
+    .copyright {
+      padding: 20px 0px 9px;
+      color: #8996a3;
+      font-size: 12px;
+    }
+    .social-media {
+      padding: 10px 0;
+    }
+    .social-media a {
+      text-decoration: none;
+      color: #333333;
+    }
+    .social-media a img {
+      width: 15px;
+    }
+    .dedi {
+      color: red;
+    }
+    .haha {
+      background: yellow;
+    }
+    .btn-link {
+      background: #214798;
+      color: white;
+       padding: 8px 20px;
+      border-radius: 16px;
+      cursor: pointer;
+      outline: 0;
+      font-size: 14px;
+      font-weight: bold;
+      border-color: transparent;
+      margin: 16px 0;
+    }
+    .jobs {
+      background: #fccdbb;
+      border-radius: 16px;
+      padding: 16px;
+      margin: 8px 0;
+    }
+    a {
+      text-decoration: none;
+    }
+    .jobs h2, .jobs p{
+      text-decoration: none;
+      color: black;
+      padding: 0;
+      margin: 0;
+    }
+
+    .jobs h2 {
+    }
+    .float-right {
+      float: right;
+    }
+    .button-detik p {
+      color: white;
+    }
+    .button-detik {
+      background: #f17f52;
+      color: white;
+      padding: 8px;
+      cursor: pointer;
+      border-radius: 25px;
+      margin: 0 auto 16px;
+             font-weight: 700;
+      text-align: center;
+      box-shadow: none;
+      outline: 0;
+      width: auto;
+      display: block;
+      border-color: transparent;
+    }
+    .card {
+      border: 1px solid #d3d3d3;
+      border-radius: 16px;
+      margin: 8px;
+    }
+    .card-image {
+      width: 100%;
+      height: 100%;
+    }
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px 16px 0 0;
+      object-fit: cover;
+    }
+    .card-title {
+      padding: 8px;
+      font-weight: bold;
+    }
+    .card p {
+      padding: 0 8px 8px;
+      margin: 0;
+    }
+    .bluee {
+      background: #214798 !important;
+    }
+    .grey {
+      color: #9CA0A8;
+      font-size: 12px;
+    }
+    .padd-8 {
+      padding: 8px 16px 16px 16px;
+      border-bottom: 2px solid #e4e4e4;
+    }
+    .padd-8 p {
+      margin: 0;
+    }
+    .footerx {
+      display: block;
+      margin: 8px auto;
+      text-align: center;
+    }
+
+    .footerx .iconx {
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+    }
+    .footerx .iconx img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .no-space {
+      padding: 0 !important;
+      color: #4d4d4d !important;
+      font-size: 9px;
+    }
+    .text-center-blue {
+      font-family: 'Bold', sans-serif;
+      color: #214099;
+      line-height: 14px;
+      width: 80%;
+      margin: 24px auto 0;
+      text-align: center;
+      font-size: 12px;
+    }
+    .kanannya {
+      margin-right: 8px;
+      padding-right: 8px;
+      border-right: 2px solid #ccc;
+    }
+    </style>
+    <body style="margin: 0px">
+        <table
+            width="100%"
+            align="center"
+            cellspacing="0"
+            cellpadding="0"
+        >
+            <tr>
+                <td>
+                    <!--[if mso]>
+            <table width="600" align="center" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <![endif]-->
+                    <table
+                        class="container-wrap"
+                        align="center"
+                        cellspacing="0"
+                        cellpadding="0"
+                    >
+                        <tr>
+                            <td>
+                                <table
+                                    class="container"
+                                    width="100%"
+                                    cellspacing="0"
+                                    cellpadding="0"
+                                >
+                                    <tr class="header">
+                                        <td>
+                                            <table
+                                                class="logo-container"
+                                                width="100%"
+                                                cellspacing="0"
+                                                cellpadding="0"
+                                            >
+                                                <tr>
+                                                    <td align="center" class="logo-img">
+                                                        <img width="165" src="https://akcdn.detik.net.id/community/media/visual/2019/06/28/2846568b-3057-49c6-8125-ff5135d07312.png?d=1">
+                                                    </td>
+                                                    <!-- <td align="right" width="50%">Nov 2022</td> -->
+                                                </tr>
+                                                <tr>
+                                                    <td class="no-space">
+                                                        <p>PT Trans Digital Media is the holding company of detikcom, Indonesia's leading online media. We believe in our B.E.S.T.I.E values (Berintegritas, Extraordinary, Sinergis, Tanggap, Inovatif, and Energik) to build a better working environment.</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table
+                                                class="content"
+                                                width="100%"
+                                                cellspacing="0"
+                                                cellpadding="0"
+                                            >
+                                                <tr>
+                                                    <td>
+                                                        <table width="100%" cellspacing="0" cellpadding="0">
+                                                            <tr>
+                                                                <td class="content-wrapper">
+                                                                    <table
+                                                                        width="100%"
+                                                                        cellspacing="0"
+                                                                        cellpadding="0"
+                                                                        class="booking-info-table"
+                                                                    >
+                                                                        <!-- header welcome -->
+                                                                        <tr>
+                                                                            <td class="content-name">
+                                                                                <h2 class="welcome">
+                                                                                    Dear {{Nama Lengkap}}
+                                                                                </h2>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <!-- isi content -->
+                                                                        <tr>
+                                                                            <td class="content-booking">
+                                                                                <div class="padd-8">
+                                                                                    <p>
+                                                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem qui libero molestiae cumque eveniet inventore aliquam cum, error suscipit laboriosam! Distinctio, asperiores minus! Perspiciatis aliquam vitae ratione perferendis odit quo.
+                                                                                    </p>
+                                                                                    <br>
+                                                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero iste veniam blanditiis eius animi recusandae facilis ab autem nulla, debitis vero cumque reprehenderit rem, doloribus mollitia sequi accusamus tempore provident! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et error vitae corrupti, tenetur praesentium quas ex amet quisquam, libero commodi voluptatum, dolor minima assumenda aperiam dolore eveniet reprehenderit. Doloribus, nihil!</p>
+                                                                                </div>
+                                                                                <div class="text-center-blue">
+                                                                                    <strong>Be part of #anakdetik and keep updated with our latest insights!</strong>
+                                                                                </div>
+                                                                                <div class="footerx">
+                                                                                    <div class="iconx kanannya">
+                                                                                        <a href="https://www.instagram.com/anakdetik/">
+                                                                                            <img src="https://akcdn.detik.net.id/community/media/visual/2024/06/06/icon-sosmed-anak-detik.png">
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div class="iconx">
+                                                                                        <a href="https://jobs.detik.com/">
+                                                                                            <img src="https://akcdn.detik.net.id/community/media/visual/2024/06/06/icon-sosmed-anak-detik-2.png">
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div class="iconx">
+                                                                                        <a href="https://www.linkedin.com/company/detik-com/">
+                                                                                            <img src="https://akcdn.detik.net.id/community/media/visual/2024/06/06/icon-sosmed-anak-detik-4.png">
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div class="iconx">
+                                                                                        <a href="https://www.instagram.com/anakdetik/">
+                                                                                            <img src="https://akcdn.detik.net.id/community/media/visual/2024/06/06/icon-sosmed-anak-detik-3.png">
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div class="iconx">
+                                                                                        <img src="https://akcdn.detik.net.id/community/media/visual/2024/06/06/icon-sosmed-anak-detik-1.png">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="footer" align="center">
+                                            <table
+                                                class="footer-table"
+                                                align="center"
+                                                cellspacing="0"
+                                                cellpadding="0"
+                                            >
+                                                <tr>
+                                                    <td colspan="2" class="confirmation-email" align="center">
+                                                        If you have any questions, feel free to message us at
+                                                        <a class="mail" href="mailto:jobs@detik.com">jobs@detik.com</a>
+                                                        .
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <br>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--[if mso]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
